@@ -12,13 +12,14 @@
 <body>
 
         <?php
+        
          require __DIR__ . '/functions.php';
         
             
         $caratteri = [
             'alphabet' => 'qwertyuiopasdfghjklzxcvbnm',
             'numbers' => '1234567890',
-            'symbols' => '\|!"£$%&/()=?^*.;,-_#@][><'
+            'symbols' => '\|!"£$%&/()=?^*.;,-_#@][><',
         ];
 
 
@@ -32,29 +33,34 @@
         while (strlen($password) < $lunghezza) {
             $password .= getCharacter($caratteri['alphabet']);
         }
-       
+    
+    }
+      /** 
+    if (isset($_GET['lunghezza']) && !empty($_GET['lunghezza'])) {
+       $password .= generaStringaRandom($_GET['lunghezza']);
       
     }
-            
+      */       
    ?>
 
 
     <main>
         <form action="index.php" method="GET" class="container">
-                <?php
+        <?php
                     if (isset($password)) {
                         if ($password == true) {
                             ?> 
                         <div class="alert alert-success" role="alert">
                         
                             <?php echo $password . strlen($password) ?>
-                            
+                            <!--
+                            <?php echo $password ?>
+                            -->
                         </div>
                         <?php 
                         }
                     }
                 ?>
-
             <div class="mb-3 col-3 m-auto">
                 <label for="exampleInputPassword1" class="form-label titolo">Lunghezza
                     Password</label>
