@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form{
+    background-color: rgb(199, 156, 240);
+    margin-top: 150px;
+    padding: 30px;
+   
+}
+
+
+body{
+    background-color: currentcolor;
+}
