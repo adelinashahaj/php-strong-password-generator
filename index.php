@@ -9,8 +9,70 @@
 
 </head>
 <body>
-    
+
+        <?php
+       
+       function getCharacter($string): string {
+           $lunghezza = strlen($string) - 1;
+           $randomNumber = rand(0, $lunghezza);
+           return $string[$randomNumber];
+       }
+            
+        $caratteri = [
+            'alphabet' => 'qwertyuiopasdfghjklzxcvbnm',
+            'numbers' => '1234567890',
+            'symbols' => '\|!"£$%&/()=?^*.;,-_#@][><'
+        ];
+
+
+
+    $password = '';
+
+    if (isset($_GET['lunghezza']) && !empty($_GET['lunghezza'])) {
+        $lunghezza = $_GET['lunghezza'];
+        $caratt = $caratteri['alphabet'] . $caratteri['numbers'] . $caratteri['symbols'];
+        $scrumble = str_shuffle($caratt);
+        while (strlen($password) < $lunghezza) {
+            $password .= getCharacter($caratteri['alphabet']);
+        }
+       
+      
+    }
+            
+   ?>
+
+
+    <main>
+        <form action="index.php" method="GET" class="container">
+                <?php
+                    if (isset($password)) {
+                        if ($password == true) {
+                            ?> 
+                        <div class="alert alert-success" role="alert">
+                        
+                            <?php echo $password . strlen($password) ?>
+                            
+                        </div>
+                        <?php 
+                        }
+                    }
+                ?>
+
+            <div class="mb-3 col-3 m-auto">
+                <label for="exampleInputPassword1" class="form-label titolo">Lunghezza
+                    Password</label>
+                <input type="number" class="form-control col-3 text-center" name="lunghezza">
+            </div>
+
+                <button type="submit" class="btn btn-primary text-uppercase">genera</button>
+                <button type="refer" class="btn btn-warning text-uppercase">annulla</button>
+
+
+        </form>
+
+
     </main>
+
 
 
 </body>
