@@ -35,7 +35,7 @@
         }
     
     }
-      /** 
+      /** un altro metodo
     if (isset($_GET['lunghezza']) && !empty($_GET['lunghezza'])) {
        $password .= generaStringaRandom($_GET['lunghezza']);
       
@@ -53,7 +53,7 @@
                         <div class="alert alert-success" role="alert">
                         
                             <?php echo $password . strlen($password) ?>
-                            <!--
+                            <!-- un altro metodo
                             <?php echo $password ?>
                             -->
                         </div>
