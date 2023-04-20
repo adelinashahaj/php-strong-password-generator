@@ -12,7 +12,7 @@
 <body>
 
         <?php
-        
+        session_start();
          require __DIR__ . '/functions.php';
         
             
@@ -33,12 +33,13 @@
         while (strlen($password) < $lunghezza) {
             $password .= getCharacter($caratteri['alphabet']);
         }
-    
+
+        $_SESSION['password'] = $password;
+        header('Location: session.php' );
     }
       /** un altro metodo
     if (isset($_GET['lunghezza']) && !empty($_GET['lunghezza'])) {
-       $password .= generaStringaRandom($_GET['lunghezza']);
-      
+        $password .= generaStringaRandom($_GET['lunghezza']);
     }
       */       
    ?>
@@ -46,6 +47,7 @@
 
     <main>
         <form action="index.php" method="GET" class="container">
+         
         <?php
                     if (isset($password)) {
                         if ($password == true) {
@@ -61,6 +63,7 @@
                         }
                     }
                 ?>
+     
             <div class="mb-3 col-3 m-auto">
                 <label for="exampleInputPassword1" class="form-label titolo">Lunghezza
                     Password</label>
